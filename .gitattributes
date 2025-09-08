@@ -1,7 +1,7 @@
 # Normalise les fins de ligne
 * text=auto
 
-# Force LF pour le code (évite les diffs bruyants)
+# Force LF pour les fichiers texte
 *.php  text eol=lf
 *.css  text eol=lf
 *.js   text eol=lf
@@ -11,15 +11,15 @@
 *.yml  text eol=lf
 *.yaml text eol=lf
 *.xml  text eol=lf
+*.svg  text
 
-# Fichiers binaires (pas de conversion de fins de ligne)
+# Fichiers binaires (pas de conversion)
 *.png  binary
 *.jpg  binary
 *.jpeg binary
 *.gif  binary
 *.webp binary
 *.ico  binary
-*.svg  text      # (svg = texte, pas binary)
 *.woff binary
 *.woff2 binary
 *.ttf  binary
