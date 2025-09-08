@@ -1,0 +1,9 @@
+.DS_Store
+.Thumbs.db
+*.log
+node_modules/
+vendor/
+wp-content/cache
+wp-content/ai1wm_backups/
+wp-content/backups/
+wp-content/upgrade/
