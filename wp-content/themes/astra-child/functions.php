@@ -26,3 +26,21 @@ add_action( 'wp_enqueue_scripts', 'child_theme_configurator_css', 10 );
 add_action('wp_enqueue_scripts', function () {
   wp_enqueue_style('planty-fonts', 'https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap', [], null);
 });
+
+//Hook Filter Admin
+
+add_filter('wp_get_nav_menu_items', function ($items, $menu, $args) {
+  if ( is_user_logged_in() ) return $items;
+
+ $admin_url = rtrim( admin_url(), '/' );
+  foreach ($items as $i => $item) {
+    $classes = (array) ($item->classes ?? []);
+    $title   = trim( wp_strip_all_tags( $item->title ?? '' ) );
+    $url     = rtrim( (string) ($item->url ?? ''), '/' );
+
+    if ( in_array('admin-only', $classes, true) || $url === $admin_url || $title === 'Admin' ) {
+      unset($items[$i]);
+    }
+  }
+  return array_values($items);
+}, 10, 3);
