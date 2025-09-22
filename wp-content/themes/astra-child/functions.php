@@ -27,20 +27,21 @@ add_action('wp_enqueue_scripts', function () {
   wp_enqueue_style('planty-fonts', 'https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap', [], null);
 });
 
-//Hook Filter Admin
+// Hook Filter Admin - permet de modifier la liste des items du menu WordPress AVANT qu’ils soient affichés sur le site
 
-add_filter('wp_get_nav_menu_items', function ($items, $menu, $args) {
-  if ( is_user_logged_in() ) return $items;
+add_filter('wp_get_nav_menu_items', function ($items, $menu, $args) { // $items est la liste des liens du menu, $menu est le menu WP concerné, $args sont les arguments passés à wp_nav_menu()
+  if ( is_user_logged_in() ) 
+    return $items; // Retourne la liste telle quelle si l’utilisateur est connecté
 
- $admin_url = rtrim( admin_url(), '/' );
-  foreach ($items as $i => $item) {
-    $classes = (array) ($item->classes ?? []);
-    $title   = trim( wp_strip_all_tags( $item->title ?? '' ) );
-    $url     = rtrim( (string) ($item->url ?? ''), '/' );
+ $admin_url = rtrim( admin_url(), '/' ); // URL de l’admin WP, sans le slash final
+  foreach ($items as $i => $item) { // Parcourt chaque item du menu
+    $classes = (array) ($item->classes ?? []); //Si le lien a la classe CSS admin-only, on le supprime
+    $title   = trim( wp_strip_all_tags( $item->title ?? '' ) ); // Titre du lien, sans balises HTML ni espaces superflus, si le titre du lien est "Admin"
+    $url     = rtrim( (string) ($item->url ?? ''), '/' ); // URL du lien, sans le slash final, si le titre du lien est "Admin"
 
-    if ( in_array('admin-only', $classes, true) || $url === $admin_url || $title === 'Admin' ) {
-      unset($items[$i]);
+    if ( in_array('admin-only', $classes, true) || $url === $admin_url || $title === 'Admin' ) { // Si le lien a la classe CSS admin-only, ou si son URL est celle de l’admin WP, ou si le titre du lien est "Admin"
+      unset($items[$i]); // On supprime cet item de la liste
     }
-  }
-  return array_values($items);
-}, 10, 3);
+  } 
+  return array_values($items); // Réindexe le tableau des items avant de le retourner
+}, 10, 3); // 10 = priorité d’exécution, 3 = nombre d’arguments passés au callback
