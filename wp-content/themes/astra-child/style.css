@@ -572,6 +572,24 @@ Updated: 2025-09-08 18:46:45
     margin-right: auto !important;
   }
 
+  /* Header menu */
+
+  .main-header-menu {
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    gap: 16px !important;
+  }
+  .main-header-menu .menu-link {
+    font-size: 15px !important;
+    padding: 8px 14px !important;
+  }
+  
+  .ast-header-break-point .main-navigation ul .menu-item .menu-link {
+    border-bottom: none !important;
+    box-shadow: none !important;         /* parfois Astra met un box-shadow aussi */
+    text-decoration: none !important;
+  }
+  
   
 }
 
