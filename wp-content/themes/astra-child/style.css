@@ -145,7 +145,7 @@ Updated: 2025-09-08 18:46:45
 #wpforms-324 .wp-block-column.form-wrap {
   margin-left: auto;
   margin-right: auto;
-  max-width: 960px;    /* Ajuste selon ta maquette ! */
+  max-width: 960px;    /* Ajustement selon la maquette ! */
   width: 100%;
   display: block;
 }
@@ -208,14 +208,13 @@ Updated: 2025-09-08 18:46:45
   background: #fff;
 }
 
-
 .form-wrap .wpforms-field input[type="text"],
 .form-wrap .wpforms-field input[type="email"]{
   width: 100%;
   height: 60px;
   border-radius: 7px;
   font: inherit;
- 
+
 }
 
 .form-wrap .wpforms-field textarea{
@@ -263,15 +262,52 @@ Updated: 2025-09-08 18:46:45
   transition: none !important;
 }
 
+/* page Commander */
+
+.commande-section.alignwide {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  /* background-color, border-radius, etc si besoin */
+}
+
+.commande-section .wp-block-group.alignwide {
+  max-width: 1004px;    /* arrondi, c’est propre */
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.commande-section .wp-block-heading.alignwide {
+  text-align: left !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+.commande-section h3.wp-block-heading.alignwide {
+  
+  text-align: left;
+}
+
+.commande-h3 {
+  max-width: 1004px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left !important;
+  padding-left: 0 !important;
+}
+
 .commande-section hr.wp-block-separator {
   border-top-width: 0.5px !important;
   border-color: #fff !important;
-  width: 72%;
+  width: 84%!important;
   max-width: 100%;
 }
 
 /* Pour le formulaire de commande */
-
 
 .commande-section .flavor-card{
   display:flex; 
@@ -287,6 +323,12 @@ Updated: 2025-09-08 18:46:45
   padding: 0 12px;
   margin: 0 !important;
   box-sizing: border-box;
+}
+
+#wpforms-537-field_1-container, #wpforms-537-field_2-container, #wpforms-537-field_3-container, #wpforms-537-field_4-container{
+  width: 240px !important;
+  margin: 0;
+  padding:0;
 }
 
 .commande-section .flavor-card .wpforms-field-label{
@@ -333,7 +375,7 @@ Updated: 2025-09-08 18:46:45
   line-height: 56px;
   margin-top:8px;
   background:#fff; 
-  color:#222; 
+  color:#000; 
   font-family: Inter;
   font-weight: 400;
   font-size:16px;
@@ -464,14 +506,13 @@ Updated: 2025-09-08 18:46:45
 .commande-section .wpforms-field-container::after {
   content: "";
   position: absolute;
-  left: 180px;
+  left: 90px;
   right: 0;
   /* top: N px;  <= on ajuste cette valeur pour la placer entre les cards et les colonnes */
   top: 490px;
-  width: 72%;
-  height: 1px;
+  width: 84%;
+  height: 0.5px;
   background: #fff;
-  border-radius: 1px;
   z-index: 2;
   pointer-events: none;
 }
@@ -509,9 +550,28 @@ Updated: 2025-09-08 18:46:45
   color: #fff;
 }
 
+/* MEDIA QUERIES */
 
-#wpforms-537-field_1-container, #wpforms-537-field_2-container, #wpforms-537-field_3-container, #wpforms-537-field_4-container{
-  width: 240px !important;
-  margin: 0;
-  padding:0;
+/* Responsive tablette */
+
+@media (max-width: 1024px) {
+
+    /* Séction avis : empiler les avis */
+
+  .avis-grid.wp-block-columns {
+    flex-direction: column !important;
+    gap: 28px !important;   /* espace vertical entre les avis */
+    align-items: center !important;
+  }
+
+  .avis-grid.wp-block-columns > .wp-block-column {
+    margin-bottom: 0 !important;
+    width: 100% !important;
+    max-width: 440px !important; /* adapter selon design */
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  
 }
+
