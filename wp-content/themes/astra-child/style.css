@@ -271,43 +271,132 @@ Updated: 2025-09-08 18:46:45
   width: 100%;
   padding-left: 0;
   padding-right: 0;
-  /* background-color, border-radius, etc si besoin */
-}
-
-.commande-section .wp-block-group.alignwide {
-  max-width: 1004px;    /* arrondi, c’est propre */
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-.commande-section .wp-block-heading.alignwide {
-  text-align: left !important;
-  margin-left: 0 !important;
-  padding-left: 0 !important;
-}
-.commande-section h3.wp-block-heading.alignwide {
   
-  text-align: left;
 }
 
-.commande-h3 {
+.commande-section .formulaire-groupe {
   max-width: 1004px;
   margin-left: auto;
   margin-right: auto;
-  text-align: left !important;
-  padding-left: 0 !important;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
 }
+
+.commande-h3 {
+  max-width: 100%;
+  margin-bottom: 0 0 30px 0;
+  text-align: left !important;
+  padding: 0 !important;
+}
+
+/* Séparateurs */
 
 .commande-section hr.wp-block-separator {
   border-top-width: 0.5px !important;
   border-color: #fff !important;
   width: 84%!important;
-  max-width: 100%;
+  max-width: 1004px;
+  margin: 36px auto 36px auto !important;
 }
 
-/* Pour le formulaire de commande */
+.commande-section .wpforms-field-container::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  /* top: N px;  <= on ajuste cette valeur pour la placer entre les cards et les colonnes */
+  top: 32%;
+  width: 100%;
+  max-width: 1004px;
+  height: 0.5px;
+  background: #fff;
+  z-index: 2;
+  pointer-events: none;
+}
+
+#wpforms-537-field_11-container {
+  position: relative;
+}
+
+#wpforms-537-field_11-container::after {
+  content: "";
+  position: absolute;
+  top: 90px;               /* Ajuste la valeur si je veux descendre */
+  left: 120%;
+  width: 0.5px!important;
+  height: 450px;        /* Ajuste à la hauteur des colonnes */
+  background: #fff;
+  z-index: 2;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+/* Formulaire de commande */
+
+.commande-section .wpforms-form .wpforms-field{ 
+  box-sizing: border-box; 
+}
+
+.commande-section .wpforms-field.wpforms-one-fourth{ 
+  padding: 0; 
+}
+
+.commande-section .wpforms-field.wpforms-one-fourth:not(.wpforms-first){ 
+  margin-left: 0 !important; 
+}
+
+.commande-section .wpforms-field.flavor-card.wpforms-first{ 
+  clear: both; 
+}
+
+.commande-section .wpforms-form .wpforms-field.wpforms-one-half.wpforms-first{
+  clear: both !important;
+}
+
+.commande-section .wpforms-form{ 
+  max-width:1200px; 
+  margin:0 auto; 
+}
+
+.commande-section .wpforms-form .wpforms-field-container{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  align-items:flex-start;
+  justify-content: space-between;
+  max-width: 1004px;
+  position: relative;
+}
+
+.commande-section .wpforms-form .wpforms-field{
+  float:none !important;
+  clear:none !important;
+  box-sizing:border-box;
+}
+
+.commande-section .wpforms-form .wpforms-field.wpforms-one-half{
+  flex:0 1 450px !important;
+  max-width:420px !important;
+  justify-content:center;
+  margin-left: 0 !important;
+}
+
+.commande-section .wpforms-field:not([class*="wpforms-one-"]){
+  float:none; 
+  width:100%;
+}
+
+.commande-section .wpforms-submit-container{ 
+  clear: both; 
+}
+
+.commande-section .wpforms-form::after{ 
+  content:""; 
+  display:block; 
+  clear:both; 
+}
+
+/* Flavor cards formulaire de commande */
 
 .commande-section .flavor-card{
   display:flex; 
@@ -320,15 +409,52 @@ Updated: 2025-09-08 18:46:45
 .commande-section .wpforms-field.flavor-card{
   float: left;
   width: 25%;
-  padding: 0 12px;
+  padding: 0 !important;
   margin: 0 !important;
   box-sizing: border-box;
 }
 
-#wpforms-537-field_1-container, #wpforms-537-field_2-container, #wpforms-537-field_3-container, #wpforms-537-field_4-container{
-  width: 240px !important;
-  margin: 0;
-  padding:0;
+#wpforms-537-field_1-container {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#wpforms-537-field_2-container {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+#wpforms-537-field_4-container {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding-right: 10px !important;
+}
+
+#wpforms-537-field_3-container{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    padding-left: 10px !important
+}
+
+#wpforms-537-field_1-description, #wpforms-537-field_2-description, #wpforms-537-field_3-description, #wpforms-537-field_4-description {
+    margin: 0;
+    width: auto;
+}
+
+.commande-section .flavor-card {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;     /* <-- c’est ce qui centre VERTICALEMENT tous les enfants de .flavor-card, donc l’input aussi */
+  text-align: center;
+  margin-bottom: 24px;
 }
 
 .commande-section .flavor-card .wpforms-field-label{
@@ -341,10 +467,10 @@ Updated: 2025-09-08 18:46:45
 
 .commande-section .flavor-card .flavor-card-media{
   position:relative;      			
-  width:200px; 
-  height:130px;
-  overflow:hidden; 
-  margin: 8px;
+  width: 225px;
+  height: 130px;
+  overflow: hidden; 
+  margin: 0;
 }
 
 .commande-section .flavor-card .flavor-card-media img{
@@ -373,102 +499,21 @@ Updated: 2025-09-08 18:46:45
   padding: 0!important;
   text-align:center!important;
   line-height: 56px;
-  margin-top:8px;
-  background:#fff; 
+  margin: 15px auto 0 auto !important; 
   color:#000; 
   font-family: Inter;
   font-weight: 400;
-  font-size:16px;
-  appearance: textfield;
 }
 
-.commande-section .flavor-card input[type="number"]::-webkit-outer-spin-button,
-.commande-section .flavor-card input[type="number"]::-webkit-inner-spin-button{
-  -webkit-appearance: none;
-  margin: 0;
+#wpforms-537-field_1-container input[type="number"] {
+  transform: translateX(-12px);
 }
 
-.commande-section .wpforms-form .wpforms-field{ 
-  box-sizing: border-box; 
+#wpforms-537-field_2-container input[type="number"] {
+  transform: translateX(12px); 
 }
 
-.commande-section .wpforms-field.wpforms-one-fourth{ 
-  padding: 0 10px; 
-}
-
-.commande-section .wpforms-field.wpforms-one-fourth:not(.wpforms-first){ 
-  margin-left: 0 !important; 
-}
-
-.commande-section .wpforms-field.flavor-card.wpforms-first{ 
-  clear: both; 
-}
-
-.commande-section .wpforms-form{ 
-  max-width:1200px; 
-  margin:0 auto; 
-}
-
-.commande-section .wpforms-form .wpforms-field-container{
-  display:flex !important;
-  flex-wrap:wrap !important;
-  align-items:flex-start;
-  justify-content: center;
-  max-width: 1000px;
-  margin: 0 auto 5px auto;
-}
-
-.commande-section .wpforms-form .wpforms-field{
-  float:none !important;
-  clear:none !important;
-  box-sizing:border-box;
-}
-
-.commande-section .wpforms-form .wpforms-field.wpforms-one-half{
-  flex:0 1 450px !important;
-  max-width:420px !important;
-  justify-content:center;
-  margin-left: 35px!important;
-  margin-right: 35px!important;
-  
-}
-
-.commande-section .wpforms-field-textarea textarea{
-  height: 75px !important;
-  min-height: 75px !important;
-  resize: none;
-  border-radius: 7px;
-  width: 100%;
-}
-
-.commande-section .wpforms-form .wpforms-field.wpforms-one-half.wpforms-first{
-  clear: both !important;
-}
-
-.commande-section .wpforms-field input[type="text"],
-.commande-section .wpforms-field input[type="email"]{
-  width:100% !important;
-  border-radius: 7px;
-  height: 75px;
-  padding: 12px 14px;
-  border-radius: 7px;
-  box-sizing: border-box;
-}
-
-.commande-section .wpforms-field:not([class*="wpforms-one-"]){
-  float:none; 
-  width:100%;
-}
-
-.commande-section .wpforms-submit-container{ 
-  clear: both; 
-}
-
-.commande-section .wpforms-form::after{ 
-  content:""; 
-  display:block; 
-  clear:both; 
-}
+/* Section Vos informations + Livraison */
 
 .wpforms-container .wpforms-form .wpforms-field-label{
   color: #fff;
@@ -503,33 +548,25 @@ Updated: 2025-09-08 18:46:45
   display: none !important;
 }
 
-.commande-section .wpforms-field-container::after {
-  content: "";
-  position: absolute;
-  left: 90px;
-  right: 0;
-  /* top: N px;  <= on ajuste cette valeur pour la placer entre les cards et les colonnes */
-  top: 490px;
-  width: 84%;
-  height: 0.5px;
-  background: #fff;
-  z-index: 2;
-  pointer-events: none;
+.commande-section .wpforms-field-textarea textarea{
+  height: 75px !important;
+  min-height: 75px !important;
+  resize: none;
+  border-radius: 7px;
+  width: 100%;
 }
 
-#wpforms-537-field_11-container::after {
-  content: "";
-  position: absolute;
-  top: 90px;               /* Ajuste la valeur si je veux descendre */
-  left: 109%;
-  width: 1px!important;
-  height: 450px;        /* Ajuste à la hauteur des colonnes */
-  background: #fff;
-  border-radius: 1px;
-  z-index: 2;
-  pointer-events: none;
-  transform: translateX(-50%);
+.commande-section .wpforms-field input[type="text"],
+.commande-section .wpforms-field input[type="email"]{
+  width:100% !important;
+  border-radius: 7px;
+  height: 75px;
+  padding: 12px 14px;
+  border-radius: 7px;
+  box-sizing: border-box;
 }
+
+/* Bouton Commander */
 
 #wpforms-537 .wpforms-submit{
   background-color: #E0B9B4!important;
@@ -590,6 +627,94 @@ Updated: 2025-09-08 18:46:45
     text-decoration: none !important;
   }
   
+  /* Page Commander */
+
+  .commande-section.alignwide {
+    max-width: 98vw !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .commande-section .wpforms-form,
+  .commande-section .wpforms-form .wpforms-field-container {
+    max-width: 98vw !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .commande-section .wp-block-group,
+  .commande-section .wp-block-group > .wp-block-group {
+    max-width: 98vw !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Assouplit les séparateurs si width ou max-width */
+  .commande-section hr,
+  .commande-section .wp-block-separator {
+    max-width: 94vw !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Adapte le titre */
+  .commande-section h2,
+  .commande-section h3 {
+    max-width: 92vw;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .commande-section .wpforms-form .wpforms-field-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 20px 0 !important;   /* espace vertical (20px), 0 horizontal */
+  }
+
+  .commande-section .wpforms-field.flavor-card {
+    width: 48% !important;
+    margin: 0 1% 28px 1% !important;
+    min-width: 250px;   /* ou ajuste à la taille mini visuelle de la card */
+    box-sizing: border-box;
+  }
+}
+
+ /* Responsive spécial intermédiaire page Commander */   
+
+@media (min-width: 1025px) and (max-width: 1439px) {
+  .commande-section.alignwide,
+  .commande-section .wp-block-group,
+  .commande-section .wp-block-group > .wp-block-group,
+  .commande-section .wpforms-form,
+  .commande-section .wpforms-form .wpforms-field-container {
+    max-width: 98vw !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .commande-section h3.wp-block-heading.alignwide {
+    padding-left: 0 !important;
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: block !important;
+  }
   
 }
 
