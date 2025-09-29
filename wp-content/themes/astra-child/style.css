@@ -19,8 +19,8 @@ Updated: 2025-09-08 18:46:45
 .ast-header-button-1 .menu-link,
 .ast-custom-button,
 .menu-link.ast-custom-button {
-  padding: 30px 45px 30px 45px !important;
-  height: 80px !important;
+  padding: 30px 45px 30px 45px;
+  height: 80px;
   text-decoration: none !important;
   letter-spacing: 0 !important;
   font-size: 16px !important;
@@ -742,6 +742,202 @@ Updated: 2025-09-08 18:46:45
 
 /* Responsive mobile */
 
+@media (max-width: 600px) {
 
+  html, body,
+  .ast-plain-container,
+  .ast-page-builder-template,
+  .site-content,
+  .entry-content,
+  .wp-block-group,
+  .wp-block-cover {
+    max-width: 100vw;
+    width: 100vw !important;
+    overflow-x: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
+  /* Header menu */
+
+  .ast-above-header-wrap,
+  .ast-above-header-bar,
+  .ast-builder-grid-row {
+    max-width: 100vw !important;
+    width: 100vw !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 auto !important;
+  }
+
+  .site-header-above-section-left {
+    justify-content: flex-start !important;
+    align-items: center !important;
+    padding-left: 8px !important;
+  }
   
+  .ast-builder-grid-row {
+    flex-direction: row !important;
+    align-items: stretch !important;
+    margin-top: 20px !important;
+    overflow-wrap: normal !important;
+  }
+
+  .ast-builder-grid-row.site-header-section {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+  }
+
+  .site-header-section-left,
+  .site-header-section-right {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .main-header-menu,
+  .ast-nav-menu {
+    width: 100% !important;
+    flex-direction: column !important;  /* ou column si tu préfères */
+    gap: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .site-logo-img img,
+  .custom-logo {
+    max-width: 140px !important;  /* ou 90px si besoin */  
+    margin: 8px auto 0 auto !important;
+    display: block;
+  }
+
+  .main-header-menu li,
+  .ast-nav-menu li {
+    text-align: center !important;
+    width: 100% !important;
+    display: block !important;
+    margin-bottom: 0 !important;
+  }
+
+  .main-header-menu a,
+  .ast-nav-menu a {
+    font-size: 15px !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  .ast-header-break-point .main-navigation ul .menu-item .menu-link {
+    padding: 0 !important;
+  }
+
+  .ast-header-button-1 {
+    width: 100%;
+    margin: 10px auto 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .ast-custom-button {
+    font-size: 16px !important;
+    padding: 10px 18px !important;
+    width: auto !important;
+    margin-left: 0 !important;
+  }
+
+  .ast-custom-button-link .ast-custom-button {
+    height: 70% !important;
+    font-size: 12px !important;
+    padding: 25px 30px 25px 30px !important;
+  }
+  
+  .h1-accueil {
+    font-size: 20px !important;
+    margin: 30px 20px 30px 20px !important;
+  }
+
+  .h2-gouts {
+    font-size: 18px !important;
+    margin: 20px 0 20px 0 !important;
+  }
+
+  .h2-avis {
+    font-size: 18px !important;
+    padding-top: 35px !important;
+  }
+
+  .wave-top::before {
+    top: -60px !important;
+    width: 120% !important;
+    height: 90px !important;
+  }
+
+  .h3-accueil, .h3-avis {
+    font-size: 16px !important;
+  }
+
+  .p-accueil {
+    font-size: 14px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .p-avis {
+    font-size: 14px !important;
+  }
+
+  .wp-block-media-text__content {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  .cards-container-accueil {
+    margin-bottom: 0 !important;
+    padding: 20px 10px 20px 10px !important;
+  }
+  .cards-group-accueil {
+    display:flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    padding: 0 10px 0 10px !important;
+    margin: 0 !important;
+    width: 100% !important;
+    gap: 23px;
+  }
+
+  .card-gouts-accueil {
+    width: 75% !important;
+    min-height: 110px !important;  
+  }
+
+  .p-cards-gouts {
+    font-size: 20px !important;
+  }
+   
+  .button-commander-accueil {
+    margin: 0 !important;
+  }
+
+  .gouts-cta {
+    width: 50% !important;
+    padding: 15px 0 15px 0 !important;
+  }
+
+  .wp-image-121 {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    display: block !important;
+   }
+
+   .wp-image-184 {
+    margin-top: 20px !important;
+    height: 40px !important;
+   }
+  
+}

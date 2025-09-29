@@ -7,3 +7,13 @@ wp-content/cache
 wp-content/ai1wm_backups/
 wp-content/backups/
 wp-content/upgrade/
+#Ignore WordPress core
+wp-admin/
+wp-includes/
+#Ignore tous les plugins 
+wp-content/plugins/*
+#Ignore uploads
+wp-content/uploads
+*.sql
+*.sqlite
+!wp-content/themes/astra-child/
