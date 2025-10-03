@@ -121,7 +121,7 @@ Updated: 2025-09-08 18:46:45
 .gouts-cta .wp-block-button__link {
   background-color: #E0B9B4 !important;
   color: #fff !important;
-  border-radius: 10px !important;
+  border-radius: 5px !important;
   border: 0 !important;
   box-shadow: none !important;
   opacity: 1 !important;
@@ -870,9 +870,7 @@ Updated: 2025-09-08 18:46:45
     font-size: 20px !important;
   }
    
-  .button-commander-accueil {
-    margin: 0 !important;
-  }
+
 
   .gouts-cta {
     width: 50% !important;
